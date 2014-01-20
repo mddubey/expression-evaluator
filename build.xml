@@ -1,4 +1,4 @@
-<project name = "expression-evaluator" default = "runTest">
+<project name = "expression-evaluator" default = "dist">
     <target name = "clean">
         <delete dir = "build"/>
     </target>
