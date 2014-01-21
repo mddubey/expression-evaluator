@@ -1,6 +1,6 @@
 package mritunjd.evaluator.cli;
 
-import mritunjd.evaluator.EvaluatorLib;
+import mritunjd.evaluator.lib.EvaluatorLib;
 
 public class EvaluatorClient {
     public static void main(String[] args) {

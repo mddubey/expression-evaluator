@@ -1,4 +1,4 @@
-package mritunjd.evaluator;
+package mritunjd.evaluator.lib;
 
 public class EvaluatorLib {
     private String expression;
