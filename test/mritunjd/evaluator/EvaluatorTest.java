@@ -22,7 +22,7 @@ public class EvaluatorTest {
         EvaluatorLib evaluator = new EvaluatorLib(input);
         int expected = 15;
 
-        int actual = evaluator.evaluate();
+        int actual = evaluator.evaluateExpression();
 
         Assert.assertEquals(expected, actual);
     }
@@ -33,7 +33,7 @@ public class EvaluatorTest {
         EvaluatorLib evaluator = new EvaluatorLib(input);
         int expected = 9;
 
-        int actual = evaluator.evaluate();
+        int actual = evaluator.evaluateExpression();
 
         Assert.assertEquals(expected, actual);
     }
@@ -44,7 +44,7 @@ public class EvaluatorTest {
         EvaluatorLib evaluator = new EvaluatorLib(input);
         int expected = 36;
 
-        int actual = evaluator.evaluate();
+        int actual = evaluator.evaluateExpression();
 
         Assert.assertEquals(expected, actual);
     }
@@ -55,7 +55,7 @@ public class EvaluatorTest {
         EvaluatorLib evaluator = new EvaluatorLib(input);
         int expected = 4;
 
-        int actual = evaluator.evaluate();
+        int actual = evaluator.evaluateExpression();
 
         Assert.assertEquals(expected, actual);
     }
@@ -66,7 +66,7 @@ public class EvaluatorTest {
         EvaluatorLib evaluator = new EvaluatorLib(input);
         int expected = 144;
 
-        int actual = evaluator.evaluate();
+        int actual = evaluator.evaluateExpression();
 
         Assert.assertEquals(expected, actual);
     }

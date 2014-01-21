@@ -11,7 +11,7 @@ public class EvaluatorLib {
         return expression;
     }
 
-    public int evaluate() {
+    public int evaluateExpression() {
         String[] expressionParts = getExpression().split(" ");
         String operator = expressionParts[1];
         int operand1 = Integer.parseInt(expressionParts[0]);
