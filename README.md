@@ -9,5 +9,12 @@ Expression evaluator will take a expression as input from command line. It will 
         * Operators possible are :-
             +,-,*,/,^
 
+##How to Run:-
+        * Extract the .zip file.
+        * For extracting give a folder name where to extract.
+        * Create a environment variable in your system named EVALUATOR_HOME.
+        * set the EVALUATOR_HOME/bin in path.
+        * Run the evaluator.sh with it's argument.
+
 
 
