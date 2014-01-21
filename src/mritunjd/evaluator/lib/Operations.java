@@ -1,14 +1,14 @@
 package mritunjd.evaluator.lib;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 interface Operatable {
     int evaluate(int operand1, int operand2);
 }
 
 public class Operations {
-    Map<String, Operatable> operationMap;// = new HashMap<String, Operatable>();
+    Map<String, Operatable> operationMap;
 
     public Operations() {
         Map<String, Operatable> operationMap = new HashMap<String, Operatable>();
