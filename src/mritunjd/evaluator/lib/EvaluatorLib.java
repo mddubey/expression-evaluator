@@ -1,5 +1,8 @@
 package mritunjd.evaluator.lib;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EvaluatorLib {
     private String expression;
 
@@ -7,16 +10,26 @@ public class EvaluatorLib {
         this.expression = expression;
     }
 
-    public String getExpression() {
-        return expression;
-    }
-
     public int evaluateExpression() {
-        String[] expressionParts = getExpression().split(" ");
-        String operator = expressionParts[1];
-        int operand1 = Integer.parseInt(expressionParts[0]);
-        int operand2 = Integer.parseInt(expressionParts[2]);
+        String[] expressionParts = this.expression.split(" ");
+        List<String> operators = new ArrayList<String>();
+        List<Integer> operands = new ArrayList<Integer>();
+        for (String part : expressionParts) {
+            try{
+                operands.add(Integer.parseInt(part));
+            }
+            catch (Exception ex){
+                operators.add(part);
+            }
+
+        }
         Operations operationsMap = new Operations();
-        return operationsMap.performOperation(operator, operand1, operand2);
+        int operand1 = operands.get(0);
+        for (int i = 0; i < operators.size(); i++) {
+            String operator = operators.get(i);
+            int operand2 = operands.get(i+1);
+            operand1 = operationsMap.performOperation(operator,operand1,operand2);
+        }
+        return operand1;
     }
 }
