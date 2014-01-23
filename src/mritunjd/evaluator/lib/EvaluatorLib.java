@@ -43,11 +43,17 @@ public class EvaluatorLib {
         }
     }
 
-    public int startEvaluation() {
-        StringBuilder expression = new StringBuilder(this.expression);
-        if (expression.indexOf("(") > -1)
+    private int startEvaluation(String inputExpression){
+        StringBuilder expression = new StringBuilder(inputExpression);
+        if (expression.indexOf("(") > -1){
             solveBrackets(expression);
+            return startEvaluation(expression.toString());
+        }
         return evaluateExpression(expression.toString());
+    }
+
+    public int startEvaluation() {
+        return startEvaluation(this.expression);
     }
 
     private void solveBrackets(StringBuilder expression) {

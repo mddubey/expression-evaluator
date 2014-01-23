@@ -47,7 +47,6 @@ public class Operations {
                 return (int) Math.pow(operand1, operand2);
             }
         });
-
         this.operationMap = operationMap;
     }
 
