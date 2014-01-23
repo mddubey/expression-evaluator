@@ -1,10 +1,10 @@
 package mritunjd.evaluator.lib;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 interface Operatable {
-    int evaluate(int operand1, int operand2);
+    double evaluate(double operand1, double operand2);
 }
 
 public class Operations {
@@ -15,42 +15,42 @@ public class Operations {
 
         operationMap.put("+", new Operatable() {
             @Override
-            public int evaluate(int operand1, int operand2) {
+            public double evaluate(double operand1, double operand2) {
                 return operand1 + operand2;
             }
         });
 
         operationMap.put("-", new Operatable() {
             @Override
-            public int evaluate(int operand1, int operand2) {
+            public double evaluate(double operand1, double operand2) {
                 return operand1 - operand2;
             }
         });
 
         operationMap.put("*", new Operatable() {
             @Override
-            public int evaluate(int operand1, int operand2) {
+            public double evaluate(double operand1, double operand2) {
                 return operand1 * operand2;
             }
         });
 
         operationMap.put("/", new Operatable() {
             @Override
-            public int evaluate(int operand1, int operand2) {
+            public double evaluate(double operand1, double operand2) {
                 return operand1 / operand2;
             }
         });
 
         operationMap.put("^", new Operatable() {
             @Override
-            public int evaluate(int operand1, int operand2) {
-                return (int) Math.pow(operand1, operand2);
+            public double evaluate(double operand1, double operand2) {
+                return Math.pow(operand1, operand2);
             }
         });
         this.operationMap = operationMap;
     }
 
-    public int performOperation(String operator, int operand1, int operand2) {
+    public double performOperation(String operator, double operand1, double operand2) {
         return operationMap.get(operator).evaluate(operand1, operand2);
     }
 }

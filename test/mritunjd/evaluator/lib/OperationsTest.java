@@ -7,50 +7,50 @@ public class OperationsTest {
     @Test
     public void testGivesAdditionOfTwoNumbersWhenOperatorIsPlus() throws Exception {
         Operations operations = new Operations();
-        int expected = 3;
+        double expected = 3;
 
-        int actual = operations.performOperation("+", 1, 2);
+        double actual = operations.performOperation("+", 1, 2);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesSubstractionOfTwoNumbersWhenOperatorIsMinus() throws Exception {
         Operations operations = new Operations();
-        int expected = -10;
+        double expected = -10;
 
-        int actual = operations.performOperation("-", 10, 20);
+        double actual = operations.performOperation("-", 10, 20);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesMultiplicationOfTwoNumbersWhenOperatorIsInto() throws Exception {
         Operations operations = new Operations();
-        int expected = 10;
+        double expected = 10;
 
-        int actual = operations.performOperation("*", 5, 2);
+        double actual = operations.performOperation("*", 5, 2);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesDivisionOfTwoNumbersWhenOperatorIsDivide() throws Exception {
         Operations operations = new Operations();
-        int expected = 4;
+        double expected = 4;
 
-        int actual = operations.performOperation("/", 20, 5);
+        double actual = operations.performOperation("/", 20, 5);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesPowerOfTwoNumbersWhenOperatorIsCarrat() throws Exception {
         Operations operations = new Operations();
-        int expected = 16;
+        double expected = 16;
 
-        int actual = operations.performOperation("^", 4, 2);
+        double actual = operations.performOperation("^", 4, 2);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 }

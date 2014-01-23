@@ -9,208 +9,253 @@ public class EvaluatorTest {
     public void testGivesAdditionOfTwoNumbers() throws Exception {
         String input = "12 + 3";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 15;
+        double expected = 15;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesSubstractionOfTwoNumbers() throws Exception {
         String input = "12 - 3";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 9;
+        double expected = 9;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesMultiplicationOfTwoNumbers() throws Exception {
         String input = "12 * 3";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 36;
+        double expected = 36;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesDivisionOfTwoNumbers() throws Exception {
         String input = "12 / 3";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 4;
+        double expected = 4;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testRaisesFirstNumberToPowerOfSecondNumber() throws Exception {
         String input = "12 ^ 2";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 144;
+        double expected = 144;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesAdditionOfMultipleOperands() {
         String input = "1 + 2 + 5 + 10";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 18;
+        double expected = 18;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesTheOperandAsResultWhenOnlyOneOperandIsGivenWithoutAOperator() {
         String input = "1";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 1;
+        double expected = 1;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testGivesResultOfExpressionWhichHaveMultipleOperandAndDifferentOperators() {
         String input = "1 * 2 + 5 ^ 2";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 49;
+        double expected = 49;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testEvaluateTheExpressionLeftToRightWithoutAnyPreference() {
-        String input = "1 - 2 * 5 + 2";
+        String input = "1 - 2 * 5 + 2  ";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = -3;
+        double expected = -3;
 
-        int actual = evaluator.evaluateExpression();
+        double actual = evaluator.evaluateExpression();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testEvaluatesTheExpressionWithBrackets() {
         String input = "1 + 2 * ( 12 / 4 ) - 4";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 5;
+        double expected = 5;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testWhenNoBracketsAreGivenInExpression() {
         String input = "1 + 2 * 12 - 4 - 4";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 28;
+        double expected = 28;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testEvaluatesAExpressionWhereEverythingIsInBrackets() {
         String input = "( 1 + 2 * 12 - 4 - 4 )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 28;
+        double expected = 28;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testWithDifferentOperatorsInExpression() {
         String input = "1 + ( 2 * 12 - 4 ) ^ 2";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 441;
+        double expected = 441;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testSolvesTheExpressionHavingMultipleBrackets() {
         String input = "1 + ( 2 * 12 ) - ( 4 ^ 2 )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 9;
+        double expected = 9;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testSolvesMultipleBracketsInOneExpression() {
         String input = "3 + ( 5 + 2 ) * ( 2 ^ 2 )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 40;
+        double expected = 40;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testForDifferentOperatorsWithMultipleBrackets() {
         String input = "1 + ( 34 + 12 - 10 ) * ( 12 / 4 - 2) + 100";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 137;
+        double expected = 137;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testSolvesExpressionWhichHaveNestedBrackets() {
         String input = "( 1 + ( 3 + 4 ) )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 8;
+        double expected = 8;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testSolvesNestedBracketExpressions() {
         String input = "( 2 * ( 4 / 2 + 5 ) - ( 2 ^ 2 ) + ( 12 + ( 12 / 3 ) ) )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 26;
+        double expected = 26;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
 
     @Test
     public void testForNestedBrackets() {
         String input = "1 + 5 * ( 3 + 9 - ( 12 - 10 ) + 9 )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
-        int expected = 114;
+        double expected = 114;
 
-        int actual = evaluator.startEvaluation();
+        double actual = evaluator.startEvaluation();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 1);
     }
+
+    @Test
+    public void testEvaluatesExpressionHavingDecimalNumbers() {
+        String input = "1.4 + 2.3";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        double expected = 3.7;
+
+        double actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual, 1);
+    }
+
+    @Test
+    public void testEvaluatesExpressionHavingDecimalNumbersWithBrackets() {
+        String input = "1.5 + 5.5 * ( 3.5 + 9.5 - ( 12.5 - 10.5 ) + 9 )";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        double expected = 140;
+
+        double actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual, 1);
+    }
+
+    @Test
+    public void testEvaluatesExpressionHavingNegativeNumbers() {
+        String input = "1.4 - -2.6";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        double expected = 4.0;
+
+        double actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual, 1);
+    }
+
+    @Test
+    public void testEvaluatesExpressionHavingNegativeNumbersWithBrackets() {
+        String input = "1.5 - -5.5 * ( 3.5 - -9.5 - ( 12.5 + -10.5 ) - -9 )";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        double expected = 140;
+
+        double actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual, 1);
+    }
+
 }

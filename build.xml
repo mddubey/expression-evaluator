@@ -124,20 +124,20 @@
             description="Compile, instrument ourself, run the tests and generate JUnit and coverage reports."/>
 
     <target name = "createFolderStructer" depends="coverage">
-        <mkdir dir="build/distribute/bin"/>
-        <mkdir dir="build/distribute/lib"/>
-        <copy todir = "build/distribute/bin">
+        <mkdir dir="build/dist/bin"/>
+        <mkdir dir="build/dist/lib"/>
+        <copy todir = "build/dist/bin">
             <fileset dir = "run-script"/>
         </copy>
-        <copy file = "README.md" tofile = "build/distribute/README.md"/>
+        <copy file = "README.md" tofile = "build/dist/README.md"/>
     </target>
 
     <target name = "build" depends = "createFolderStructer">
-        <jar destfile = "build/distribute/lib/expression-evaluator.jar" basedir = "build/classes/src"/>
+        <jar destfile = "build/dist/lib/expression-evaluator.jar" basedir = "build/classes/src"/>
     </target>
 
     <target name = "dist" depends = "build">
-        <zip destfile = "build/evaluator-0.4.zip" basedir = "build/distribute" update = "true"/>
+        <zip destfile = "build/evaluator-0.4.zip" basedir = "build/dist" update = "true"/>
     </target>
 
 </project>
