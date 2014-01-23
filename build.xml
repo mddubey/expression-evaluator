@@ -136,7 +136,7 @@
         <jar destfile = "build/distribute/lib/expression-evaluator.jar" basedir = "build/classes/src"/>
     </target>
 
-    <target name = "dist" depends = "createFolderStructer">
+    <target name = "dist" depends = "build">
         <zip destfile = "build/expression-evaluator-0.3.zip" basedir = "build/distribute" update = "true"/>
     </target>
 
