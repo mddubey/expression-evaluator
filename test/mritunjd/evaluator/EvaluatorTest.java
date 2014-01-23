@@ -161,7 +161,7 @@ public class EvaluatorTest {
 
     @Test
     public void testSolvesMultipleBracketsInOneExpression() {
-        String input =  "3 + ( 5 + 2 ) * ( 2 ^ 2 )";
+        String input = "3 + ( 5 + 2 ) * ( 2 ^ 2 )";
         EvaluatorLib evaluator = new EvaluatorLib(input);
         int expected = 40;
 
@@ -169,4 +169,26 @@ public class EvaluatorTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testForDifferentOperatorsWithMultipleBrackets() {
+        String input = "1 + ( 34 + 12 - 10 ) * ( 12 / 4 - 2) + 100";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 137;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+//    @Test
+//    public void testSolvesExpressionWhichHaveNestedBrackets() {
+//        String input = "( 1 + ( 3 + 4 ) )";
+//        EvaluatorLib evaluator = new EvaluatorLib(input);
+//        int expected = 8;
+//
+//        int actual = evaluator.startEvaluation();
+//
+//        Assert.assertEquals(expected, actual);
+//    }
 }

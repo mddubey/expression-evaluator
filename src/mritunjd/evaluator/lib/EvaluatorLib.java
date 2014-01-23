@@ -43,9 +43,9 @@ public class EvaluatorLib {
         }
     }
 
-    private int startEvaluation(String inputExpression){
+    private int startEvaluation(String inputExpression) {
         StringBuilder expression = new StringBuilder(inputExpression);
-        if (expression.indexOf("(") > -1){
+        if (expression.indexOf("(") > -1) {
             solveBrackets(expression);
             return startEvaluation(expression.toString());
         }
@@ -57,10 +57,16 @@ public class EvaluatorLib {
     }
 
     private void solveBrackets(StringBuilder expression) {
-        int startIndex = expression.indexOf("(");
-        int endIndex = expression.indexOf(")");
-        String expressionWithinBracket = expression.substring(startIndex + 1, endIndex);
+        int openingBracketIndex = -1;
+        int closingBracketIndex = -1;
+        for (int index = 0; index < expression.length(); index++) {
+            if('(' == expression.charAt(index))
+                openingBracketIndex = index;
+            if(')' == expression.charAt(index))
+                closingBracketIndex = index;
+        }
+        String expressionWithinBracket = expression.substring(openingBracketIndex + 1, closingBracketIndex);
         int result = evaluateExpression(expressionWithinBracket);
-        expression.replace(startIndex, endIndex + 1, Integer.toString(result));
+        expression.replace(openingBracketIndex, closingBracketIndex + 1, Integer.toString(result));
     }
 }
