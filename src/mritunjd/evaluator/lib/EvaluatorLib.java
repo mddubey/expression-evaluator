@@ -10,8 +10,8 @@ public class EvaluatorLib {
         this.expression = expression;
     }
 
-    public int evaluateExpression() {
-        String[] expressionParts = this.expression.split(" ");
+    private int evaluateExpression(String expression) {
+        String[] expressionParts = expression.trim().split(" ");
         List<String> operators = new ArrayList<String>();
         List<Integer> operands = new ArrayList<Integer>();
         filterOperandsAndOperator(expressionParts, operators, operands);
@@ -19,10 +19,14 @@ public class EvaluatorLib {
         int operand1 = operands.get(0);
         for (int i = 0; i < operators.size(); i++) {
             String operator = operators.get(i);
-            int operand2 = operands.get(i+1);
-            operand1 = operationsMap.performOperation(operator,operand1,operand2);
+            int operand2 = operands.get(i + 1);
+            operand1 = operationsMap.performOperation(operator, operand1, operand2);
         }
         return operand1;
+    }
+
+    public int evaluateExpression() {
+        return evaluateExpression(this.expression);
     }
 
     private void filterOperandsAndOperator(String[] expressionParts, List<String> operators, List<Integer> operands) {
@@ -33,5 +37,17 @@ public class EvaluatorLib {
                 operators.add(part);
             }
         }
+    }
+
+    public int startEvaluation() {
+        StringBuilder expression = new StringBuilder(this.expression);
+        if (expression.indexOf("(") > -1) {
+            int startIndex = expression.indexOf("(");
+            int endIndex = expression.indexOf(")");
+            String expressionWithinBracket = expression.substring(startIndex + 1, endIndex);
+            int result = evaluateExpression(expressionWithinBracket);
+            expression.replace(startIndex, endIndex + 1, Integer.toString(result));
+        }
+        return evaluateExpression(expression.toString());
     }
 }

@@ -104,4 +104,15 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testEvaluatesTheExpressionWithBrackets() {
+        String input = "1 + 2 * ( 12 / 4 ) - 4";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 5;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
 }
