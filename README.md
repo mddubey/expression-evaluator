@@ -2,6 +2,12 @@ expression-evaluator
 ====================
 Expression evaluator will take a expression as input from command line. It will evaluate the expression and gives result.
 
+##Release0.3
+    * This release supports one bracket in expression.
+    * Example:-
+        "1 + ( 2 ^ 3 - 2 ) - 1"
+        "2 + ( 4 * 5 ) + 3"
+
 ##Release0.2
     * This release supports multiple operations in expression.
     * Example:-
