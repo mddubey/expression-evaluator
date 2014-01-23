@@ -53,7 +53,8 @@ public class EvaluatorLib {
     }
 
     public double startEvaluation() {
-        return startEvaluation(this.expression);
+        String expressionWithoutSpaces = this.getExpressionWithSpace();
+        return startEvaluation(expressionWithoutSpaces);
     }
 
     private void solveBrackets(StringBuilder expression) {
@@ -70,5 +71,18 @@ public class EvaluatorLib {
         String expressionWithinBracket = expression.substring(openingBracketIndex + 1, closingBracketIndex);
         double result = evaluateExpression(expressionWithinBracket);
         expression.replace(openingBracketIndex, closingBracketIndex + 1, Double.toString(result));
+    }
+
+    public String getExpressionWithSpace() {
+        String expression = this.expression;
+        expression = expression.replaceAll(" +","");
+        return expression.replaceAll("\\+"," + ")
+                    .replaceAll("\\-"," - ")
+                    .replaceAll("\\*"," * ")
+                    .replaceAll("/"," / ")
+                    .replaceAll("\\^"," ^ ")
+                    .replaceAll("\\(","( ")
+                    .replaceAll("\\)"," )")
+                    .replaceAll("  - "," -");
     }
 }
