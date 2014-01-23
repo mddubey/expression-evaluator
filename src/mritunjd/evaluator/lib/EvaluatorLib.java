@@ -15,6 +15,10 @@ public class EvaluatorLib {
         List<String> operators = new ArrayList<String>();
         List<Integer> operands = new ArrayList<Integer>();
         filterOperandsAndOperator(expressionParts, operators, operands);
+        return calculateAll(operators, operands);
+    }
+
+    private int calculateAll(List<String> operators, List<Integer> operands) {
         Operations operationsMap = new Operations();
         int operand1 = operands.get(0);
         for (int i = 0; i < operators.size(); i++) {
@@ -41,13 +45,16 @@ public class EvaluatorLib {
 
     public int startEvaluation() {
         StringBuilder expression = new StringBuilder(this.expression);
-        if (expression.indexOf("(") > -1) {
-            int startIndex = expression.indexOf("(");
-            int endIndex = expression.indexOf(")");
-            String expressionWithinBracket = expression.substring(startIndex + 1, endIndex);
-            int result = evaluateExpression(expressionWithinBracket);
-            expression.replace(startIndex, endIndex + 1, Integer.toString(result));
-        }
+        if (expression.indexOf("(") > -1)
+            solveBrackets(expression);
         return evaluateExpression(expression.toString());
+    }
+
+    private void solveBrackets(StringBuilder expression) {
+        int startIndex = expression.indexOf("(");
+        int endIndex = expression.indexOf(")");
+        String expressionWithinBracket = expression.substring(startIndex + 1, endIndex);
+        int result = evaluateExpression(expressionWithinBracket);
+        expression.replace(startIndex, endIndex + 1, Integer.toString(result));
     }
 }

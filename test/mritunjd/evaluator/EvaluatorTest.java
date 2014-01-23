@@ -115,4 +115,37 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testWhenNoBracketsAreGivenInExpression() {
+        String input = "1 + 2 * 12 - 4 - 4";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 28;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testEvaluatesAExpressionWhereEverythingIsInBrackets() {
+        String input = "( 1 + 2 * 12 - 4 - 4 )";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 28;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testWithDifferentOperatorsInExpression() {
+        String input = "1 + ( 2 * 12 - 4 ) ^ 2";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 441;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
 }
