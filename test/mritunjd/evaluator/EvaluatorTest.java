@@ -181,14 +181,36 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void testSolvesExpressionWhichHaveNestedBrackets() {
-//        String input = "( 1 + ( 3 + 4 ) )";
-//        EvaluatorLib evaluator = new EvaluatorLib(input);
-//        int expected = 8;
-//
-//        int actual = evaluator.startEvaluation();
-//
-//        Assert.assertEquals(expected, actual);
-//    }
+    @Test
+    public void testSolvesExpressionWhichHaveNestedBrackets() {
+        String input = "( 1 + ( 3 + 4 ) )";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 8;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSolvesNestedBracketExpressions() {
+        String input = "( 2 * ( 4 / 2 + 5 ) - ( 2 ^ 2 ) + ( 12 + ( 12 / 3 ) ) )";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 26;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testForNestedBrackets() {
+        String input = "1 + 5 * ( 3 + 9 - ( 12 - 10 ) + 9 )";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        int expected = 114;
+
+        int actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual);
+    }
 }

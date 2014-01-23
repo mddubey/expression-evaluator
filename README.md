@@ -2,6 +2,13 @@ expression-evaluator
 ====================
 Expression evaluator will take a expression as input from command line. It will evaluate the expression and gives result.
 
+##Release0.4
+    * This release will support multiple nested brackets in expression.
+    * Example:-
+        " ( 1 + ( 2 + 5 ) )"
+        " ( 1 + 2 * ( 4 ^ 2 ) + 5 )"
+        " 1 + 5 * ( 3 + 9 - ( 12 - 10 ) + 9 )"
+
 ##Release0.3
     * This release supports one bracket in expression.
     * Example:-

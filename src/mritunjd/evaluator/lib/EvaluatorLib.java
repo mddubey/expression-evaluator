@@ -60,10 +60,12 @@ public class EvaluatorLib {
         int openingBracketIndex = -1;
         int closingBracketIndex = -1;
         for (int index = 0; index < expression.length(); index++) {
-            if('(' == expression.charAt(index))
+            if ('(' == expression.charAt(index))
                 openingBracketIndex = index;
-            if(')' == expression.charAt(index))
+            if (')' == expression.charAt(index)) {
                 closingBracketIndex = index;
+                break;
+            }
         }
         String expressionWithinBracket = expression.substring(openingBracketIndex + 1, closingBracketIndex);
         int result = evaluateExpression(expressionWithinBracket);
