@@ -2,6 +2,19 @@ expression-evaluator
 ====================
 Expression evaluator will take a expression as input from command line. It will evaluate the expression and gives result.
 
+##Release0.5
+    * This release will support negative and decimal numbers in expression.
+    * There should be no space between - and number in negative number.
+        E.g:-   "1 - -2"
+    * Example
+        " ( 1.5 + -2.5 )"
+        " ( 2.3 + ( -1.5 * 2 ) + 4 )"
+
+    * Known Bugs
+        It will show only two numbers after decimal point.
+        If result is whole number then also it shows two decimal points.
+            12 will be 12.00
+
 ##Release0.4
     * This release will support multiple nested brackets in expression.
     * Example:-
