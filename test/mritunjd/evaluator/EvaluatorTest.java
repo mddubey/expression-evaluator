@@ -303,7 +303,7 @@ public class EvaluatorTest {
     }
 
     @Test
-    public void testInsertsSpacesInExpressionIfSpeacesAreNotGiven(){
+    public void testInsertsSpacesInExpressionIfSpeacesAreNotGiven() {
         String input = "( 1.5+ (2.4--4 )^4 ^4+ -2)";
         EvaluatorLib evaluator = new EvaluatorLib(input);
         String expected = "( 1.5 + ( 2.4 - -4 ) ^ 4 ^ 4 + -2 )";
@@ -325,10 +325,32 @@ public class EvaluatorTest {
     }
 
     @Test
-    public void testEvaluatesExpressionHavingNegativeNumbersWithBracketsWithout() {
+    public void testEvaluatesExpressionHavingNegativeNumbersWithBracketsWithoutSpace() {
         String input = "1.5--5.5*(3.5--9.5-(12.5+-10.5)--9)";
         EvaluatorLib evaluator = new EvaluatorLib(input);
         double expected = 140;
+
+        double actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual, 1);
+    }
+
+    @Test
+    public void testEvaluatesExpressionEitherItHasSpacesOrNot() {
+        String input = "1.5--5.5 *(3.5--9.5-(12.5 +-10.5) --9)";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        double expected = 140;
+
+        double actual = evaluator.startEvaluation();
+
+        Assert.assertEquals(expected, actual, 1);
+    }
+
+    @Test
+    public void testEvaluatesExpressionStartWithNegativeNumber() {
+        String input = "-15.5--5.5";
+        EvaluatorLib evaluator = new EvaluatorLib(input);
+        double expected = -10;
 
         double actual = evaluator.startEvaluation();
 

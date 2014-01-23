@@ -75,14 +75,15 @@ public class EvaluatorLib {
 
     public String getExpressionWithSpace() {
         String expression = this.expression;
-        expression = expression.replaceAll(" +","");
-        return expression.replaceAll("\\+"," + ")
-                    .replaceAll("\\-"," - ")
-                    .replaceAll("\\*"," * ")
-                    .replaceAll("/"," / ")
-                    .replaceAll("\\^"," ^ ")
-                    .replaceAll("\\(","( ")
-                    .replaceAll("\\)"," )")
-                    .replaceAll("  - "," -");
+        expression = expression.replaceAll(" +", "");
+        return expression.replaceAll("\\+", " + ")
+                .replaceAll("\\-", " - ")
+                .replaceAll("\\*", " * ")
+                .replaceAll("/", " / ")
+                .replaceAll("\\^", " ^ ")
+                .replaceAll("\\(", "( ")
+                .replaceAll("\\)", " )")
+                .replaceAll("  - ", " -")
+                .replaceFirst("^ - ", "-");
     }
 }
